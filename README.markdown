@@ -22,9 +22,9 @@ To do:
 
 Installation:
 =============
-* Note: Current version only works with Gradle 1.0-RC-Milestone-6
+* Note: Current version only works with Gradle 1.0-RC-Milestone-6+
 * Note: Current version only works with Maven 3.0+ (see FAQ for the Maven 2 exception. Contribute a pull request if you can solve it.)
-* Run the `./gradlew installIntoGradle` task and you are good to go. This will:
+* Run the `./gradlew copy2GradleHome` task and you are good to go. This will:
     * Put the maven2gradle jar into $GRADLE_HOME/lib
     * Put the batch files into $GRADLE_HOME/bin
 
@@ -44,3 +44,4 @@ Recognized Contributors:
 * [Antony Stubbs](http://github.com/astubbs)
 * [Baruch Sadogursky](http://github.com/jbaruch)
 * [Matthew McCullough](http://github.com/matthewmccullough)
+* [Hans Dockter](http://github.cmo/hansd)

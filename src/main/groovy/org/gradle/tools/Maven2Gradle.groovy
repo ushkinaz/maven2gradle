@@ -76,8 +76,6 @@ subprojects {
   ${commonDeps}
   ${testNg(commonDeps)}
   }
-
-dependsOnChildren()
 """
       modules(allProjects, false).each { module ->
         def id = module.artifactId.text()

@@ -525,7 +525,7 @@ project('$entry.key').projectDir = """ + '"$rootDir/' + "${entry.value}" + '" as
  * It also tackles the properties attached to dependencies
  */
   private def createComplexDependency(it, build, scope, Map dependencyProperties) {
-    build.append("${scope}(\"${contructSignature(it)}\") {\n")
+    build.append("${scope}(${contructSignature(it)}) {\n")
     it.exclusions.exclusion.each() {
       build.append("exclude(module: '${it.artifactId}')\n")
     }
@@ -542,7 +542,7 @@ project('$entry.key').projectDir = """ + '"$rootDir/' + "${entry.value}" + '" as
  */
   private def createBasicDependency(mavenDependency, build, String scope) {
     def classifier = contructSignature(mavenDependency)
-    build.append("${scope} \"${classifier}\"\n")
+    build.append("${scope} ${classifier}\n")
   }
 /**
  * Print out the basic form of gradle dependency
@@ -559,8 +559,8 @@ project('$entry.key').projectDir = """ + '"$rootDir/' + "${entry.value}" + '" as
  * classifier if it exists
  */
   private def contructSignature(mavenDependency) {
-    def gradelDep = "${mavenDependency.groupId.text()}:${mavenDependency.artifactId.text()}:${mavenDependency?.version?.text()}"
-    def classifier = elementHasText(mavenDependency.classifier) ? gradelDep + ":" + mavenDependency.classifier.text().trim() : gradelDep
+    def gradelDep = "group: '${mavenDependency.groupId.text()}', name: '${mavenDependency.artifactId.text()}', version:'${mavenDependency?.version?.text()}'"
+    def classifier = elementHasText(mavenDependency.classifier) ? gradelDep + ", classifier:'" + mavenDependency.classifier.text().trim() + "'": gradelDep
     return classifier
   }
 
